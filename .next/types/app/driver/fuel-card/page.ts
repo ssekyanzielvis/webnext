@@ -1,4 +1,4 @@
-// File: C:\LOGISTICS\Logistics-and-Procurement-Management-App\logistics\web-next\app\driver\fuel-card\page.tsx
+// File: C:\Users\SSEKYANZI\Desktop\My Projects\LOGISTICSWEB\webnext\app\driver\fuel-card\page.tsx
 import * as entry from '../../../../../app/driver/fuel-card/page.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 

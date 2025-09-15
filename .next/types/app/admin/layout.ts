@@ -1,4 +1,4 @@
-// File: C:\LOGISTICS\Logistics-and-Procurement-Management-App\logistics\web-next\app\admin\layout.tsx
+// File: C:\Users\SSEKYANZI\Desktop\My Projects\LOGISTICSWEB\webnext\app\admin\layout.tsx
 import * as entry from '../../../../app/admin/layout.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 

@@ -1,4 +1,4 @@
-// File: C:\LOGISTICS\Logistics-and-Procurement-Management-App\logistics\web-next\app\client\page.tsx
+// File: C:\Users\SSEKYANZI\Desktop\My Projects\LOGISTICSWEB\webnext\app\client\page.tsx
 import * as entry from '../../../../app/client/page.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 

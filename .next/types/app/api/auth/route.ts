@@ -1,4 +1,4 @@
-// File: C:\LOGISTICS\Logistics-and-Procurement-Management-App\logistics\web-next\app\api\auth\route.ts
+// File: C:\Users\SSEKYANZI\Desktop\My Projects\LOGISTICSWEB\webnext\app\api\auth\route.ts
 import * as entry from '../../../../../app/api/auth/route.js'
 import type { NextRequest } from 'next/server.js'
 
