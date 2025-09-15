@@ -35,6 +35,9 @@ export default function Home() {
           <h1 className="text-2xl font-bold mb-4">Welcome, {user.email}!</h1>
           <p className="mb-6">You are logged in as <span className="font-semibold">{role}</span>.</p>
           <Link href={dashboard} className="btn-primary">Go to Dashboard</Link>
+          {role === 'client' && (
+            <Link href="/client" className="btn-secondary mt-4">Go to Client Dashboard</Link>
+          )}
         </section>
       </main>
     )

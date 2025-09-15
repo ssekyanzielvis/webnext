@@ -53,6 +53,13 @@ export default function RegisterPage() {
         role,
         updated_at: new Date().toISOString()
       }, { onConflict: 'id' })
+
+      // Post-registration check: ensure role is set in users table
+      const { data: profile } = await (supabase as any).from('users').select('role').eq('id', userId).maybeSingle()
+      if (!profile || profile.role !== role) {
+        // Try to update again if not set
+        await (supabase as any).from('users').update({ role }).eq('id', userId)
+      }
     }
 
     // Redirect based on chosen role
