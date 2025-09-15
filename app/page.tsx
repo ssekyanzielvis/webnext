@@ -1,7 +1,46 @@
+"use client"
+
 import Link from 'next/link'
 import { ShieldCheck, Users, Building2 } from 'lucide-react'
+import { useEffect, useState } from 'react'
+import { createClient } from '@/lib/supabase-browser'
 
 export default function Home() {
+  const supabase = createClient()
+  const [user, setUser] = useState<any>(null)
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    const run = async () => {
+      const { data: { user } } = await supabase.auth.getUser()
+      setUser(user)
+      setLoading(false)
+    }
+    run()
+  }, [supabase])
+
+  if (loading) {
+    return <main className="min-h-screen flex items-center justify-center"><span>Loading...</span></main>
+  }
+
+  if (user) {
+    // Show welcome and dashboard link based on role
+    const role = user.user_metadata?.role || user.app_metadata?.role || 'user'
+    let dashboard = '/client'
+    if (role === 'admin' || role === 'other_admin') dashboard = '/admin'
+    else if (role === 'driver') dashboard = '/driver'
+    return (
+      <main className="min-h-screen flex items-center justify-center">
+        <section className="max-w-xl mx-auto p-8 card text-center">
+          <h1 className="text-2xl font-bold mb-4">Welcome, {user.email}!</h1>
+          <p className="mb-6">You are logged in as <span className="font-semibold">{role}</span>.</p>
+          <Link href={dashboard} className="btn-primary">Go to Dashboard</Link>
+        </section>
+      </main>
+    )
+  }
+
+  // Not logged in: show login buttons
   return (
     <main className="min-h-screen">
       <section className="max-w-5xl mx-auto px-4 py-16">
@@ -37,15 +76,6 @@ export default function Home() {
             badgeFg="text-amber-600"
             href="/auth/login"
           />
-        </div>
-        <div className="mt-10 grid grid-cols-2 md:grid-cols-4 gap-3 text-sm">
-          <Link className="card p-3" href="/admin/analytics">Admin Analytics</Link>
-          <Link className="card p-3" href="/admin/fuel-cards">Fuel Cards</Link>
-          <Link className="card p-3" href="/admin/lockers">Lockers</Link>
-          <Link className="card p-3" href="/admin/fuel-assignments">Assignments</Link>
-          <Link className="card p-3" href="/driver/delivery-notes">Delivery Notes</Link>
-          <Link className="card p-3" href="/driver/fuel-transactions">Fuel Transactions</Link>
-          <Link className="card p-3" href="/profile">Profile</Link>
         </div>
       </section>
     </main>
