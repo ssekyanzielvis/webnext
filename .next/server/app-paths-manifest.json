@@ -1,6 +1,9 @@
 {
-  "/profile/page": "app/profile/page.js",
-  "/page": "app/page.js",
+  "/auth/logout/page": "app/auth/logout/page.js",
+  "/auth/login/page": "app/auth/login/page.js",
+  "/driver/available/page": "app/driver/available/page.js",
   "/admin/fuel-cards/page": "app/admin/fuel-cards/page.js",
-  "/admin/page": "app/admin/page.js"
+  "/admin/settings/page": "app/admin/settings/page.js",
+  "/admin/driver-locations/page": "app/admin/driver-locations/page.js",
+  "/admin/fuel-transactions/page": "app/admin/fuel-transactions/page.js"
 }

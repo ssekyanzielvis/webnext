@@ -2,7 +2,22 @@ import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
 import { createServerClient } from '@supabase/ssr'
 
-const PROTECTED_PREFIXES = ['/client','/driver','/admin','/chat','/profile','/consignments']
+const PROTECTED_PREFIXES = [
+  '/client',
+  '/driver',
+  '/admin',
+  '/chat',
+  '/profile',
+  '/consignments',
+  '/fuel-cards',
+  '/fuel-assignments',
+  '/fuel-transactions',
+  '/lockers',
+  '/settings',
+  '/orders',
+  '/documents',
+  '/analytics'
+]
 
 export async function middleware(req: NextRequest) {
   const { pathname } = req.nextUrl
@@ -41,5 +56,20 @@ export async function middleware(req: NextRequest) {
 }
 
 export const config = {
-  matcher: ['/client/:path*','/driver/:path*','/admin/:path*','/chat/:path*','/profile/:path*','/consignments/:path*']
+  matcher: [
+    '/client/:path*',
+    '/driver/:path*',
+    '/admin/:path*',
+    '/chat/:path*',
+    '/profile/:path*',
+    '/consignments/:path*',
+    '/fuel-cards/:path*',
+    '/fuel-assignments/:path*',
+    '/fuel-transactions/:path*',
+    '/lockers/:path*',
+    '/settings/:path*',
+    '/orders/:path*',
+    '/documents/:path*',
+    '/analytics/:path*'
+  ]
 }
